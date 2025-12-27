@@ -1,22 +1,16 @@
-import { useState } from 'react'
 import React from 'react';
-import { Moon } from 'lucide-react';
 
-
-
-/
-// Hero Section Component
 const HeroSection: React.FC = () => {
   return (
     <main className="relative flex flex-col items-center justify-center min-h-screen px-4">
-      {/* Background Text */}
+      {/* Background Text - The "Parallax" Element */}
       <div className="absolute inset-0 flex items-center justify-center select-none z-0 pointer-events-none">
         <h1 className="text-[12rem] font-bold text-zinc-800/50 tracking-tighter whitespace-nowrap">
           URO® ALURO® ALU
         </h1>
       </div>
 
-      {/* Central Image */}
+      {/* Central Image Card */}
       <div className="relative z-10 p-1 rounded-3xl bg-gradient-to-b from-blue-500/20 to-transparent">
         <div className="rounded-2xl overflow-hidden border-4 border-blue-500/10">
           <img
@@ -37,14 +31,4 @@ const HeroSection: React.FC = () => {
   );
 };
 
-// Main Page Component
-const HomePage: React.FC = () => {
-  return (
-    <div className="min-h-screen bg-zinc-950 text-white overflow-hidden">
-      <Navbar />
-      <HeroSection />
-    </div>
-  );
-};
-
-export default HomePage;
+export default HeroSection;
