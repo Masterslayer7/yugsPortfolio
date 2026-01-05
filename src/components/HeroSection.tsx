@@ -3,22 +3,18 @@ import profilePic from "../assets/IMG_8956-Enhanced-NR.jpg";
 import { motion } from "framer-motion";
 import PhotoCard from './PhotoCard';
 
-const MarqueeGroup = () => (
-  <div className="flex shrink-0 items-center gap-20 px-10">
-    <h1 className="text-[12rem] font-bold text-zinc-800/50 tracking-tighter">
-      Yug Patel
-    </h1>
-    <h1 className="text-[12rem] font-bold text-zinc-800/50 tracking-tighter">
-      Yug Patel
-    </h1>
-    <h1 className="text-[12rem] font-bold text-zinc-800/50 tracking-tighter">
-      Yug Patel
-    </h1>
-    <h1 className="text-[12rem] font-bold text-zinc-800/50 tracking-tighter">
-      Yug Patel
-    </h1>
-  </div>
-);
+const MarqueeGroup = () => {
+  const marqueeTextClass = "text-[8vw] max:text-[12rem] min:text-[4rem] font-bold text-zinc-800/50 tracking-tighter";
+  return (
+    <div className="flex shrink-0 items-center gap-10 px-5">
+      {[...Array(4)].map((_, i) => (
+        <h1 key={i} className={marqueeTextClass}>
+          Yug Patel
+        </h1>
+      ))}
+    </div>
+  );
+};
 
 const HeroSection: React.FC = () => {
   return (
@@ -43,9 +39,15 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Central Image Card */}
-      <div className="relative z-10 p-1 rounded-3xl bg-gradient-to-b from-blue-500/20 to-transparent">
-        <PhotoCard className="w-[28rem] h-[36rem]"> 
-           <div className="w-full h-full rounded-2xl overflow-hidden border-4 border-blue-500/10 bg-zinc-900">
+      <div className="relative z-10">
+        <PhotoCard className="w-[25vw] h-[35vw] max-w-[30rem] max-h-[38rem] min-w-[20rem] min-h-[28rem] rounded-3xl flex items-center justify-center"> 
+           {/* 
+             TO CHANGE BLUE BACKGROUND SIZE:
+             - Blue background scales with viewport (25vw × 35vw)
+             - Has min/max sizes for responsiveness
+             - Image container below is slightly smaller (23vw × 33vw)
+           */}
+           <div className="w-[23vw] h-[33vw] max-w-[28rem] max-h-[36rem] min-w-[18rem] min-h-[26rem] rounded-2xl overflow-hidden border-4 border-blue-500/10 bg-zinc-900 flex items-center justify-center">
               <img
                 src={profilePic}
                 alt="Man in blue suit"
